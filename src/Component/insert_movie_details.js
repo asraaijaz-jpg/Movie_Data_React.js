@@ -1,22 +1,29 @@
 import React , {useState} from 'react';
 import {Button} from '@mui/material';
+import Display_movie_details from './Display_movie';
 
 function Insert_movie_details()
 {
-   const [allstates,setallstates]=useState({
+   const [allstates,setallstates]=useState([   
+    {
        name:'',
        budget:'',
        genre:''
-   })
-
+   }
+])
 
    const change_all_input_using_one_func = (e) =>
    {
        const {name,value}=e.target;
-       setallstates(prevState => ({
-        ...prevState,
-        [name]: value
-    }));
+
+       setallstates({
+           ...allstates,
+           [name]:[value]
+       })
+    //    setallstates(prevState => ({
+    //     ...prevState,
+    //     [name]: value
+    // }));
    }
 
    function submission()
@@ -34,7 +41,7 @@ function Insert_movie_details()
 
             <label style={{color:'green' , padding:'10px' }}><b>Movie-Name</b></label>
             <input type='text' placeholder='Movie_name' style={{padding:'8px' , marginBottom:'40px'}}
-            name='name' onChange={e=>change_all_input_using_one_func(e.target.value)}
+            name='name' onChange={change_all_input_using_one_func}
             value={allstates.name}/><br></br>
 
             <label style={{color:'green' , padding:'4px'}}><b>Movie-Budget</b></label>
@@ -56,6 +63,9 @@ function Insert_movie_details()
 
             <Button variant="outlined" style={{marginTop:'33px' , width:'80%'}}
             onClick={submission}>Add</Button>
+
+            <Display_movie_details pass_movie_object={allstates}/>
+
 </div>
 
         </div>
