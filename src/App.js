@@ -7,7 +7,7 @@ import Display_movie_details from './Component/Display_movie';
 
 function App() {
   return (
-    <div className="App" style={{display:'flex' , marginLeft:'30px'}}>
+    <div className="App" style={{display:'flex' , justifyContent:'space-around'}}>
      <Insert_movie_details/>
      <Display_movie_details/>
      <Search_movie_details/>
