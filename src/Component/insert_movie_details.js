@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from '@mui/material';
 
 function Insert_movie_details()
 {
@@ -14,9 +15,16 @@ function Insert_movie_details()
             <input type='text' placeholder='Movie_budget' style={{padding:'8px' , marginBottom:'40px'}}/><br></br>
 
             <label style={{color:'green' , padding:'10px'}}><b>Movie-Genre</b></label>
-            <input type='text' placeholder='Movie_genre' style={{padding:'8px' , marginBottom:'40px'}}/><br></br>
+            <select style={{padding:'8px' , marginBottom:'40px' , width:'61%'}}>
+                <option>Comedy</option>
+                <option>Horror</option>
+                <option>Romantic</option>
+                <option>Action</option>
+            </select>
+            
+            <br></br>
 
-            <button>Add</button>
+            <Button variant="outlined" style={{marginTop:'33px' , width:'80%'}}>Add</Button>
 </div>
 
         </div>
