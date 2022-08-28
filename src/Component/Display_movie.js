@@ -1,14 +1,12 @@
 import React from 'react';
 
-function  Display_movie_details(props)
+function  Display_movie_details({all})
 {
-  // alert(props.pass_movie_object[0].name);
     return(<div>
   <h1>Display_movie_details</h1>
-  {/* {
-    props.pass_movie_object.map((values)=>
-    <p>{values.name}</p>)
-  } */}
+
+  {all.map(value=>
+    <p>{value.name}</p>)}
     </div>)
 }
 export default Display_movie_details;
