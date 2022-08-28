@@ -4,6 +4,7 @@ import Display_movie_details from './Display_movie';
 
 function Insert_movie_details()
 {
+   const [checker,setchecker]=useState(false);
    const [allstates,setallstates]=useState([   
     {
        name:'',
@@ -28,9 +29,7 @@ function Insert_movie_details()
 
    function submission()
    {
-       alert(allstates.name);
-       alert(allstates.budget);
-       alert(allstates.genre);
+   setchecker(true);
    }
 
     return(
@@ -64,7 +63,8 @@ function Insert_movie_details()
             <Button variant="outlined" style={{marginTop:'33px' , width:'80%'}}
             onClick={submission}>Add</Button>
 
-            <Display_movie_details pass_movie_object={allstates}/>
+            {checker=true? <Display_movie_details pass_movie_object={allstates}/> : none}
+        
 
 </div>
 
