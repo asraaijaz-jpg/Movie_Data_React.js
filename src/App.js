@@ -8,8 +8,8 @@ import Dummy from './Component/dynamically_insertion_value_in_object_in_usestate
 function App() {
   return (
     <div className="App" style={{display:'flex' , justifyContent:'space-around'}}>
-     {/* <Insert_movie_details/>
-     <Display_movie_details/>
+     <Insert_movie_details/>
+     {/* <Display_movie_details/>
      <Search_movie_details/> */}
      <Dummy/>
     </div>

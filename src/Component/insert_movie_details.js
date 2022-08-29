@@ -29,7 +29,7 @@ function Insert_movie_details()
 
    function submission()
    {
-alert(allstates);
+
    }
 
     return(
@@ -62,8 +62,14 @@ alert(allstates);
 
             <Button variant="outlined" style={{marginTop:'33px' , width:'80%'}}
             onClick={submission}>Add</Button>
- {/* {allstates1.map((car) => <Display_movie_details name={car.name} budget={car.budget} genre={car.genre} />)} */}
-        
+            
+            
+      {allstates.map((x) => {
+        return (
+         <p>{x.name}{x.budget}{x.genre}</p>
+        );
+      })}
+
 </div>
 
         </div>
