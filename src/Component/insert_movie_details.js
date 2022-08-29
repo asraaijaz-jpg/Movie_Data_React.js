@@ -29,7 +29,7 @@ function Insert_movie_details()
 
    function submission()
    {
-console.log(allstates);
+alert(allstates);
    }
 
     return(
