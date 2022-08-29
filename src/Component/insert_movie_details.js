@@ -4,7 +4,6 @@ import Display_movie_details from './Display_movie';
 
 function Insert_movie_details()
 {
-   const [checker,setchecker]=useState(false);
    const [allstates,setallstates]=useState([   
     {
        name:'',
@@ -12,40 +11,6 @@ function Insert_movie_details()
        genre:''
    }
 ])
-
-const [allstates1,setallstates1]=useState([   
-    {
-       name:'asra',
-       budget:'555',
-       genre:'jhzjajj'
-   },
-   {
-    name:'asraehedqhed',
-    budget:'55544',
-    genre:'jhzjajjoooooo323'
-},
-{
-    name:'asra3232',
-    budget:'5553333',
-    genre:'jhzjajj99999999'
-}
-])
-
-
-const array=['asra' , 'furqan' , 'bushra'];
-const articles=[
-    {
-    'title':'Article1',
-    'upvote':5,
-    'date':'2019-6-22'
-    },
-    {
-    'title':'Article2',
-    'upvote':7,
-    'date':'2022-3-2'
-    }
-     ]
-
 
    const change_all_input_using_one_func = (e) =>
    {
@@ -55,8 +20,7 @@ const articles=[
            ...allstates,
            [name]:[value]
        })
-
-    
+ 
     //    setallstates(prevState => ({
     //     ...prevState,
     //     [name]: value,
@@ -65,16 +29,8 @@ const articles=[
 
    function submission()
    {
-//    setchecker(true);
-//   alert('Name : '+ allstates.name  + ' , ' +  'Budget : ' + allstates.budget + ' , ' +  'Budget : ' + allstates.genre);     
-// setchecker(false);  
-const newList = allstates1.concat({ allstates });
-alert(newList[1].name);
-setallstates1(newList);
-
-// alert(allstates1.name);
-
-}
+console.log(allstates);
+   }
 
     return(
         <div >
@@ -106,12 +62,8 @@ setallstates1(newList);
 
             <Button variant="outlined" style={{marginTop:'33px' , width:'80%'}}
             onClick={submission}>Add</Button>
-
-        {/* {checker==true? <Display_movie_details {...allstates} /> : '' }   */}
-        {/* {allstates1.map((car) => <Display_movie_details name={car.name} budget={car.budget} genre={car.genre} />)} */}
-        <Display_movie_details all={allstates1}/>
-    
-       
+ {/* {allstates1.map((car) => <Display_movie_details name={car.name} budget={car.budget} genre={car.genre} />)} */}
+        
 </div>
 
         </div>
