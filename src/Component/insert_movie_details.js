@@ -4,6 +4,7 @@ import Display_movie_details from './Display_movie';
 
 function Insert_movie_details()
 {
+   const [count,setcount]=useState(0);
    const [allstates,setallstates]=useState([   
     {
        name:'',
@@ -15,21 +16,18 @@ function Insert_movie_details()
    const change_all_input_using_one_func = (e) =>
    {
        const {name,value}=e.target;
-
-       setallstates({
-           ...allstates,
-           [name]:[value]
-       })
- 
-    //    setallstates(prevState => ({
-    //     ...prevState,
-    //     [name]: value,
-    // }));
+       const list = [...allstates];
+       list[count][name] = value;
+       setallstates(list);
    }
 
-   function submission()
+   function add()
    {
-
+    setallstates([...allstates, { name: "", budget: "" , genre: ""}]);
+    setcount(count+1);
+    document.getElementById('name').value="";
+    document.getElementById('budget').value="";
+    document.getElementById('genre').value="";
    }
 
     return(
@@ -39,36 +37,37 @@ function Insert_movie_details()
 <div style={{marginTop:'60px'}}>
 
             <label style={{color:'green' , padding:'10px' }}><b>Movie-Name</b></label>
-            <input type='text' placeholder='Movie_name' style={{padding:'8px' , marginBottom:'40px'}}
-            name='name' onChange={change_all_input_using_one_func}
+            <input type='text'  style={{padding:'8px' , marginBottom:'40px'}}
+            name='name' onChange={change_all_input_using_one_func} id='name'
             value={allstates.name}/><br></br>
 
             <label style={{color:'green' , padding:'4px'}}><b>Movie-Budget</b></label>
-            <input type='text' placeholder='Movie_budget' style={{padding:'8px' , marginBottom:'40px'}}
-            name='budget' onChange={change_all_input_using_one_func}
+            <input type='text' style={{padding:'8px' , marginBottom:'40px'}}
+            name='budget' onChange={change_all_input_using_one_func} id='budget'
             value={allstates.budget}/><br></br>
 
             <label style={{color:'green' , padding:'10px'}}><b>Movie-Genre</b></label>
             <select style={{padding:'8px' , marginBottom:'40px' , width:'61%'}}
-            name='genre' onChange={change_all_input_using_one_func}
-            value={allstates.genre}>
-                <option>Comedy</option>
+            name='genre' onChange={change_all_input_using_one_func} id='genre'
+            value={allstates.genre} >
+                <option></option>
                 <option>Horror</option>
                 <option>Romantic</option>
                 <option>Action</option>
+                <option>Comedy</option>
             </select>
             
             <br></br>
 
             <Button variant="outlined" style={{marginTop:'33px' , width:'80%'}}
-            onClick={submission}>Add</Button>
+            onClick={add}>Add</Button>
+            <Display_movie_details passdata={allstates}/>
             
-            
-      {allstates.map((x) => {
+      {/* {allstates.map((x) => {
         return (
          <p>{x.name}{x.budget}{x.genre}</p>
         );
-      })}
+      })} */}
 
 </div>
 
