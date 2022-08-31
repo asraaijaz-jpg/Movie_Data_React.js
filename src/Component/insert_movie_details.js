@@ -4,15 +4,15 @@ import Display_movie_details from './Display_movie';
 
 function Insert_movie_details()
 {
+   const [checker,setchecker]=useState(false); 
    const [count,setcount]=useState(0);
    const [allstates,setallstates]=useState([   
     {
-       name:'',
-       budget:'',
-       genre:''
+       name:'asra',
+       budget:'400000',
+       genre:'action'
    }
 ])
-
    const change_all_input_using_one_func = (e) =>
    {
        const {name,value}=e.target;
@@ -28,7 +28,14 @@ function Insert_movie_details()
     document.getElementById('name').value="";
     document.getElementById('budget').value="";
     document.getElementById('genre').value="";
+    setchecker(true);
    }
+
+   const obj = [
+       {name: 'Alice', age: 29, country: 'Austria'},
+       {name: 'Alice', age: 29, country: 'Austria'},
+       {name: 'Alice', age: 29, country: 'Austria'},
+   ];
 
     return(
         <div >
@@ -61,7 +68,8 @@ function Insert_movie_details()
 
             <Button variant="outlined" style={{marginTop:'33px' , width:'80%'}}
             onClick={add}>Add</Button>
-            <Display_movie_details passdata={allstates}/>
+            {checker == true ?  <Display_movie_details data={obj}/> : ''}
+           
             
       {/* {allstates.map((x) => {
         return (
