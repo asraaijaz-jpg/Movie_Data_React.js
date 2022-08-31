@@ -2,8 +2,10 @@ import React from 'react';
 
 function Display_movie_details(props)
 {
+  const checker=false;
     return(<div className='container'>
-  {/* <h1>Display_movie_details</h1> */}
+
+    {checker == true ? <h1>{props.hd}</h1> : ''}
 
     <p>
     <b>{props.name}</b> <br></br>

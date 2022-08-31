@@ -6,20 +6,6 @@ import { TextField, InputLabel, Select, FormControl, MenuItem, NativeSelect } fr
 
 function Insert_movie_details() {
 
-    const dummyData = [
-        {
-            id: "1",
-            cardTitle: "Title",
-            cardText: "Text"
-        },
-        {
-            id: "2",
-            cardTitle: "Title",
-            cardText: "Text"
-        }
-    ];
-
-
     const [checker, setchecker] = useState(false);
     const [count, setcount] = useState(0);
     const [allstates, setallstates] = useState([
@@ -42,10 +28,11 @@ function Insert_movie_details() {
         document.getElementById('name').value = "";
         document.getElementById('budget').value = "";
         document.getElementById('genre').value = "";
-
-        setchecker(true);
     }
-
+    function Show()
+    {
+    setchecker(true);
+    }
     return (
         <div >
             <h1>Insert_movie_details</h1>
@@ -75,14 +62,18 @@ function Insert_movie_details() {
                 </FormControl>
                 
                 <br></br><br></br>
-                <Button variant="contained" onClick={add}>Add</Button>
+                <Button variant="contained" onClick={add} style={{width:'30%'}}>Add</Button>
+                <Button variant="contained" onClick={Show} style={{width:'30%'}}>Show</Button>
 
                 {allstates.map((data) =>
                     <div>
                         {checker == true ?
-                            <Display_movie_details name={data.name} budget={data.budget} genre={data.genre} /> : ''}
-
+                            <Display_movie_details name={data.name} budget={data.budget} genre={data.genre} 
+                            hd='Display_movie_details' />  : ''}
                     </div>)}
+
+                    {/* {checker == true ? setchecker(false):''} */}
+                    
 
 </div>
         </div>
