@@ -8,14 +8,9 @@ import Dynamically_insertion_value_in_object_in_usestate from './Component/dynam
 
 function App() {
   return (
-    // <div className="App" style={{display:'flex' , flexDirection:'row' , justifyContent:'space-around'}}>
-    //  <Insert_movie_details/>
-    //  <Display_movie_details/>
-    //  <Search_movie_details/>
-    //  {/* <Dynamically_insertion_value_in_object_in_usestate/> */}
-    // </div>
+ 
 
-    <div className='container'>
+    <div className='container' style={{marginTop:'60px'}}>
     <div className='row'>
     <div className='col-4' style={{border:'2px solid blue'}}><Insert_movie_details/></div>
     <div className='col-4'  style={{border:'2px solid green'}}><Display_movie_details/></div>
