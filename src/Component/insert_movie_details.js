@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Button } from '@mui/material';
+import { Button, Hidden } from '@mui/material';
 import Display_movie_details from './Display_movie';
 import { TextField, InputLabel, Select, FormControl, MenuItem, NativeSelect } from '@mui/material';
-
 
 function Insert_movie_details() {
 
@@ -12,14 +11,16 @@ function Insert_movie_details() {
         {
             name: '',
             budget: '',
-            genre: ''
+            genre: '',
         }
     ])
+
     const change_all_input_using_one_func = (e) => {
         const { name, value } = e.target;
         const list = [...allstates];
         list[count][name] = value;
         setallstates(list);
+        setchecker(false);
     }
 
     function add() {
@@ -28,14 +29,12 @@ function Insert_movie_details() {
         document.getElementById('name').value = "";
         document.getElementById('budget').value = "";
         document.getElementById('genre').value = "";
-        // setchecker(true);
-    }
-    function Show() {
-        setchecker(true);
     }
 
-    const store= window.addEventListener("click", function(event) {
-    });
+    function Show() {
+          debugger;
+        setchecker(true);
+    }
     
     return (
         <div >
@@ -58,7 +57,8 @@ function Insert_movie_details() {
                     <InputLabel id="demo-simple-select-label" >Movie_Genre</InputLabel>
                     <Select labelId="demo-simple-select-label" id="genre" value={allstates.genre} name='genre'
                         label="Movie_Genre" onChange={change_all_input_using_one_func}>
-                        <MenuItem value='Comedy'>Comedy</MenuItem>
+                        <MenuItem value
+                        ='Comedy'>Comedy</MenuItem>
                         <MenuItem value='Action'>Action</MenuItem>
                         <MenuItem value='Romantic'>Romantic</MenuItem>
                         <MenuItem value='Horror'>Horror</MenuItem>
@@ -72,8 +72,7 @@ function Insert_movie_details() {
                 {allstates.map((data) =>
                     <div>
                         {checker == true ?
-                            <Display_movie_details name={data.name} budget={data.budget} genre={data.genre} 
-                            hd='Display_movie_details' />  : setchecker(false)}
+                            <Display_movie_details name={data.name} budget={data.budget} genre={data.genre}  />  : ''}
                     </div>)}
             </div>
         </div>
