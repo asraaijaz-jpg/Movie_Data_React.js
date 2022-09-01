@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { Button, Hidden } from '@mui/material';
 import Display_movie_details from './Display_movie';
 import { TextField, InputLabel, Select, FormControl, MenuItem, NativeSelect } from '@mui/material';
+import { display } from '@mui/system';
+import { allResolved } from 'q';
 
 function Insert_movie_details() {
+
+    const sample=['a','b','c','d','e'];
 
     const [checker, setchecker] = useState(false);
     const [count, setcount] = useState(0);
@@ -15,12 +19,21 @@ function Insert_movie_details() {
         }
     ])
 
+    function displayall()
+    {
+    //  for(var i=0; i<4; i++)
+    //  {
+    //     <p>hello</p>
+    //  }
+    }
+
     const change_all_input_using_one_func = (e) => {
         const { name, value } = e.target;
         const list = [...allstates];
         list[count][name] = value;
         setallstates(list);
         setchecker(false);
+        // displayall();
     }
 
     function add() {
@@ -35,7 +48,6 @@ function Insert_movie_details() {
           debugger;
         setchecker(true);
     }
-    
     return (
         <div >
             <h1>Insert_movie_details</h1>
@@ -70,10 +82,15 @@ function Insert_movie_details() {
                 <Button variant="contained" onClick={Show} style={{ width: '30%' }}>Show</Button>
 
                 {allstates.map((data) =>
-                    <div>
+                    <>
                         {checker == true ?
-                            <Display_movie_details name={data.name} budget={data.budget} genre={data.genre}  />  : ''}
-                    </div>)}
+                        <Display_movie_details name={data.name} budget={data.budget} genre={data.genre}  
+                        id='sep'/>  : ''}
+                    </>)}
+
+                    {/* <Display_movie_details set={sample}/> */}
+
+                   
             </div>
         </div>
     )

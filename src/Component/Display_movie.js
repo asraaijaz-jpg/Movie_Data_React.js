@@ -1,18 +1,18 @@
 import React from 'react';
 
-function Display_movie_details(props)
+function Display_movie_details({set})
 {
-  const checker=false;
-    return(<div className='container'>
+ 
+    return(
+    <div className='container' style={{width:'100%' , border:'2px solid orange' , display:'flex'}}>
 
-    {checker == true ? <h1>{props.hd}</h1> : ''}
-
-    <p>
+    {/* <p>
     <b>{props.name}</b> <br></br>
     {props.budget} <br></br>
     {props.genre} 
-    </p>
-
+    </p> */}
+      
+      {/* <p>{set}</p> */}
     </div>)
 }
 export default Display_movie_details;
