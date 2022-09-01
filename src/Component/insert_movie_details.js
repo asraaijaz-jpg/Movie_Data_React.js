@@ -26,18 +26,25 @@ function Insert_movie_details() {
 
     const change_all_input_using_one_func = (e) => {
         const { name, value } = e.target;
+
+        ///////////////////// save previous , make new index , and add new value ///////////////////////
+
         const list = [...allstates];
         list[count][name] = value;
         setallstates(list);
+
+        // add(list);
+
+        // ///////////////////////////////////////
         setchecker(false);
+
+        // Only for showing purpose that which thing add in list
         forone[name]=value;
         setforone(forone);
-        // setforone({...forone, [name]: value});
-
     }
 
     function add() {
-        setallstates([...allstates, { name: "", budget: "", genre: "" }]);
+        setallstates([...allstates , {forone}])
         setcount(count + 1);
         document.getElementById('name').value = "";
         document.getElementById('budget').value = "";
@@ -62,18 +69,18 @@ function Insert_movie_details() {
 
                 <TextField label="Movie_Name" color="secondary" focused
                     name='name' onChange={change_all_input_using_one_func} id='name'
-                    value={allstates.name} />
+                    value={forone.name} />
                 <br></br><br></br>
 
                 <TextField label="Movie_budget" color="secondary" focused
                     name='budget' onChange={change_all_input_using_one_func} id='budget'
-                    value={allstates.budget} />
+                    value={forone.budget} />
                 <br></br><br></br>
 
 
                 <FormControl fullWidth>
                     <InputLabel>Movie_Genre</InputLabel>
-                    <Select  id="genre" value={allstates.genre} name='genre'
+                    <Select  id="genre" value={forone.genre} name='genre'
                         label="Movie_Genre" onChange={change_all_input_using_one_func}>
                         <MenuItem value='Comedy'>Comedy</MenuItem>
                         <MenuItem value='Action'>Action</MenuItem>
@@ -94,7 +101,6 @@ function Insert_movie_details() {
                             <Display_movie_details name={data.name} budget={data.budget} genre={data.genre}
                                 id='sep' /> : ''}
                     </>)}
-
 <br></br><br></br>
         <p>
         <b><h3>{forone.name}</h3></b>
