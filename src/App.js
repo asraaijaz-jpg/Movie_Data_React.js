@@ -8,8 +8,9 @@ import Using_Usestate_in_all_ways from './Component/Using_Usestate_in_all_ways';
 
 function App() {
   return (
- 
+   
     <div>
+        <center><h1>Movie_APP</h1></center>
       <Insert_Show_Search_movie_details/>
     </div>
     // <div>

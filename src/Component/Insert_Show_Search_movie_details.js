@@ -56,7 +56,9 @@ function Insert_movie_details() {
         setcount(count + 1);
         document.getElementById('name').value = "";
         document.getElementById('budget').value = "";
-        document.getElementById('genre').value = "";
+        // document.getElementById("genre").value = "Select_Options";
+
+      
 
     }
 
@@ -76,7 +78,6 @@ function Insert_movie_details() {
         movidata.genre = myObj.genre;
         setchecker(true);
         }
-
     }
 
 function clearinput()
@@ -104,16 +105,18 @@ function clearinput()
                         <br></br><br></br>
 
 
-                        <FormControl fullWidth>
-                            <InputLabel>Movie_Genre</InputLabel>
-                            <Select id="genre" value={allstates.genre} name='genre'
-                                label="Movie_Genre" onChange={change_all_input_using_one_func}>
-                                <MenuItem value='Comedy'>Comedy</MenuItem>
-                                <MenuItem value='Action'>Action</MenuItem>
-                                <MenuItem value='Romantic'>Romantic</MenuItem>
-                                <MenuItem value='Horror'>Horror</MenuItem>
-                            </Select>
-                        </FormControl>
+                         {/* <FormControl fullWidth>
+                             <InputLabel>Movie_Genre</InputLabel> */}
+                            <select id="genre" value={allstates.genre} name='genre'
+                                label="Movie_Genre" onChange={change_all_input_using_one_func}
+                                className="form-select" style={{padding:'13px'}}>
+                                <option selected disabled>Select_Option</option>
+                                <option value='Comedy'>Comedy</option>
+                                <option value='Action'>Action</option>
+                                <option value='Romantic'>Romantic</option>
+                                <option value='Horror'>Horror</option>
+                            </select>
+                        {/* </FormControl> */}
 
 
                         <br></br><br></br>
