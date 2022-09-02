@@ -1,16 +1,27 @@
-import React, { useRef , useEffect} from 'react';
+import React, { useRef , useEffect , useState} from 'react';
 import { Input, Button } from '@mui/material';
 
 function Focused_Mouse() {
-    const ref = useRef(false);
+    const [alter,setalter]=useState(true);
+    const ref = useRef(null);
+    const flipflop='';
 
-    useEffect(() => {
-        ref.current.focus();
-      }, []);
+    // useEffect(() => {
+    //     ref.current.focus();
+    //   }, []);
 
     const handleClick = () => {
-        // alert(ref.current.value);
+        
+        if(alter)
+        {
         ref.current.focus();
+        setalter(false);
+        }
+        
+        if(alter == false)
+        {
+            setalter(true);
+        }
     };
 
     return (
