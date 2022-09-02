@@ -46,9 +46,28 @@ function Insert_movie_details() {
         document.getElementById('budget').value = "";
         document.getElementById('genre').value = "";
 
+        forone.name='';
+        forone.budget='';
+        forone.genre='';
     }
 
 
+    function search()
+    {
+       var inputValue = document.getElementById("search").value;
+       const result= allstates.map((value)=>
+       <>
+       {inputValue == allstates.name ? 'True' : "False"}
+       </>)
+
+       return result;
+    }
+
+     function check()
+     {
+         const save=search();
+         alert(save);
+     }
     return (
         <div >
 
@@ -81,10 +100,19 @@ function Insert_movie_details() {
                             </Select>
                         </FormControl>
 
+
                         <br></br><br></br>
                         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                             <Button variant="contained" onClick={add} style={{ width: '30%' }} id='b1'>Add</Button>
                         </div>
+
+                        <br></br>
+                        <p>
+                        {forone.name}<br></br>
+                        {forone.budget}<br></br>
+                        {forone.genre}
+                        </p>
+
                     </div>
 
                     {/* //////////////////////////////////////////////////////////////////////////////////// */}
@@ -111,12 +139,14 @@ function Insert_movie_details() {
                         <br></br>
 
                         <div class="input-group">
-                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                            <button type="button" class="btn btn-outline-primary">search</button>
+                            <input type="search" class="form-control rounded" placeholder="Search" 
+                            aria-label="Search" aria-describedby="search-addon"  id='search'/>
+                            <button type="button" class="btn btn-outline-primary"
+                            onClick={search}>search</button>
                         </div>
                     </div>
                 </div>
-
+{/* <button onClick={check}>check</button> */}
 
             </div>
         </div>
