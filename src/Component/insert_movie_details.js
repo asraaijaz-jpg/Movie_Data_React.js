@@ -31,20 +31,18 @@ function Insert_movie_details() {
 
         const list = [...allstates];
         list[count][name] = value;
-        setallstates(list);
-
-        // add(list);
+        setallstates([...allstates , {list}])
 
         // ///////////////////////////////////////
         setchecker(false);
 
-        // Only for showing purpose that which thing add in list
+        // Only for showing the current value that is added in list
         forone[name]=value;
         setforone(forone);
     }
 
     function add() {
-        setallstates([...allstates , {forone}])
+     
         setcount(count + 1);
         document.getElementById('name').value = "";
         document.getElementById('budget').value = "";
@@ -69,18 +67,18 @@ function Insert_movie_details() {
 
                 <TextField label="Movie_Name" color="secondary" focused
                     name='name' onChange={change_all_input_using_one_func} id='name'
-                    value={forone.name} />
+                    value={allstates.name} />
                 <br></br><br></br>
 
                 <TextField label="Movie_budget" color="secondary" focused
                     name='budget' onChange={change_all_input_using_one_func} id='budget'
-                    value={forone.budget} />
+                    value={allstates.budget} />
                 <br></br><br></br>
 
 
                 <FormControl fullWidth>
                     <InputLabel>Movie_Genre</InputLabel>
-                    <Select  id="genre" value={forone.genre} name='genre'
+                    <Select  id="genre" value={allstates.genre} name='genre'
                         label="Movie_Genre" onChange={change_all_input_using_one_func}>
                         <MenuItem value='Comedy'>Comedy</MenuItem>
                         <MenuItem value='Action'>Action</MenuItem>
@@ -102,11 +100,20 @@ function Insert_movie_details() {
                                 id='sep' /> : ''}
                     </>)}
 <br></br><br></br>
-        <p>
+        {/* <p>
         <b><h3>{forone.name}</h3></b>
         {forone.budget}<br></br>
         {forone.genre}
-        </p>
+        </p> */}
+
+        {
+         allstates.map((value)=>
+         <div>
+             <p>{value.name}</p>
+             <p>{value.budget}</p>
+             <p>{value.genre}</p>
+         </div>)
+        }
 
             </div>
         </div>

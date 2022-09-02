@@ -12,17 +12,17 @@ function App() {
   return (
  
 
-    // <div className='container' style={{marginTop:'60px'}}>
-    // <div className='row'>
-    // <div className='col-4' style={{border:'2px solid blue'}}><Insert_movie_details/></div>
-    // <div className='col-4'  style={{border:'2px solid green'}}><Display_movie_details/></div>
-    // <div className='col-4'  style={{border:'2px solid red'}}><Search_movie_details/></div>
-    // </div>
-    // </div>
-
-    <div>
-      <Using_Usestate_in_all_ways/>
+    <div className='container' style={{marginTop:'60px'}}>
+    <div className='row'>
+    <div className='col-4' style={{border:'2px solid blue'}}><Insert_movie_details/></div>
+    <div className='col-4'  style={{border:'2px solid green'}}><Display_movie_details/></div>
+    <div className='col-4'  style={{border:'2px solid red'}}><Search_movie_details/></div>
     </div>
+    </div>
+
+    // <div>
+    //   <Using_Usestate_in_all_ways/>
+    // </div>
   );
 }
 
