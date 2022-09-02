@@ -9,7 +9,6 @@ function Insert_movie_details() {
 
     const sample = ['a', 'b', 'c', 'd', 'e'];
 
-    const [checker, setchecker] = useState(false);
     const [count, setcount] = useState(0);
     const [forone,setforone]=useState({
         name:'',
@@ -21,6 +20,7 @@ function Insert_movie_details() {
             name: '',
             budget: '',
             genre: '',
+            status:''
         }
     ])
 
@@ -31,37 +31,28 @@ function Insert_movie_details() {
 
         const list = [...allstates];
         list[count][name] = value;
-        setallstates([...allstates , {list}])
 
-        // ///////////////////////////////////////
-        setchecker(false);
 
-        // Only for showing the current value that is added in list
+        // Only for showing the current value that is added in list and pass to add function
         forone[name]=value;
         setforone(forone);
     }
 
     function add() {
      
+        setallstates([...allstates , {forone}])
+    
         setcount(count + 1);
         document.getElementById('name').value = "";
         document.getElementById('budget').value = "";
         document.getElementById('genre').value = "";
 
-        forone.name='';
-        forone.budget='';
-        forone.genre='';
     }
 
-    function Show() {
-        setchecker(true);
-        forone.name='';
-        forone.budget='';
-        forone.genre='';
-    }
+
     return (
         <div >
-           <center> <h1>Insert_movie</h1></center>
+           <center> <h1>Insert_Show_Search_Movie_Details</h1></center>
 
             <div style={{ marginTop: '60px' }}>
 
@@ -90,29 +81,15 @@ function Insert_movie_details() {
                 <br></br><br></br>
                 <div style={{display:'flex' , justifyContent:'space-around'}}>
                 <Button variant="contained" onClick={add} style={{ width: '30%' }} id='b1'>Add</Button>
-                <Button variant="contained" onClick={Show} style={{ width: '30%' }}>Show</Button>
                 </div>
 
-                {allstates.map((data) =>
-                    <>
-                        {checker == true ?
-                            <Display_movie_details name={data.name} budget={data.budget} genre={data.genre}
-                                id='sep' /> : ''}
-                    </>)}
-<br></br><br></br>
-        {/* <p>
-        <b><h3>{forone.name}</h3></b>
-        {forone.budget}<br></br>
-        {forone.genre}
-        </p> */}
-
         {
-         allstates.map((value)=>
-         <div>
-             <p>{value.name}</p>
-             <p>{value.budget}</p>
-             <p>{value.genre}</p>
-         </div>)
+            allstates.map((value)=>
+            <div>
+            <p><b>{value.name}</b><br></br>
+            {value.budget}<br></br>
+            {value.genre}</p>
+            </div>)
         }
 
             </div>

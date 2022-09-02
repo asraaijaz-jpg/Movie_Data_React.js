@@ -15,8 +15,6 @@ function App() {
     <div className='container' style={{marginTop:'60px'}}>
     <div className='row'>
     <div className='col-4' style={{border:'2px solid blue'}}><Insert_movie_details/></div>
-    <div className='col-4'  style={{border:'2px solid green'}}><Display_movie_details/></div>
-    <div className='col-4'  style={{border:'2px solid red'}}><Search_movie_details/></div>
     </div>
     </div>
 
