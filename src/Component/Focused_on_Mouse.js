@@ -15,11 +15,13 @@ function Focused_Mouse() {
         if(alter)
         {
         ref.current.focus();
+        alert('Ref true get focused');
         setalter(false);
         }
         
         if(alter == false)
         {
+            alert('Ref false not get focused');
             setalter(true);
         }
     };
