@@ -8,6 +8,12 @@ function Insert_movie_details() {
 
     const sample = ['a', 'b', 'c', 'd', 'e'];
 
+    const [checker, setchecker] = useState(false);
+    const [movidata, setmoviedata] = useState({
+        name: '',
+        budget: '',
+        genre: ''
+    })
     const [count, setcount] = useState(0);
     const [forone, setforone] = useState({
         name: '',
@@ -35,6 +41,12 @@ function Insert_movie_details() {
         // Only for showing the current value that is added in list and pass to add function
         forone[name] = value;
         setforone(forone);
+
+        //  for searching
+        setchecker(false);
+
+        // clear search
+        document.getElementById('search').value = "";
     }
 
     function add() {
@@ -48,15 +60,29 @@ function Insert_movie_details() {
 
     }
 
-   function search()
-   {
-    const moviename=document.getElementById('search').value;
-    const myObj = allstates.find(obj => obj.name === moviename);
-    // alert(myObj.name + myObj.budget + myObj.genre);
-    return myObj.name;
-   }
+    function search() {
+        const moviename = document.getElementById('search').value;
+        const myObj = allstates.find(obj => obj.name === moviename);
 
-   
+        // alert(myObj);
+        if(myObj == undefined)
+        {
+            alert('Movie not Found');
+        }
+        else if(myObj.name != '')
+        {
+        movidata.name = myObj.name;
+        movidata.budget = myObj.budget;
+        movidata.genre = myObj.genre;
+        setchecker(true);
+        }
+
+    }
+
+function clearinput()
+{
+    setchecker(false);
+}
     return (
         <div >
 
@@ -122,12 +148,19 @@ function Insert_movie_details() {
 
                         <div class="input-group">
                             <input type="search" class="form-control rounded" placeholder="Search"
-                                aria-label="Search" aria-describedby="search-addon" id='search' />
+                                aria-label="Search" aria-describedby="search-addon" id='search' 
+                                onChange={clearinput}/>
                             <button type="button" class="btn btn-outline-primary"
                                 onClick={search}>search</button>
                         </div>
-                        <p>{search}</p>
-
+                    
+                        {checker == true ?
+                           
+                            <p><br></br><b>{movidata.name}</b><br></br>
+                                {movidata.budget}<br></br>
+                                {movidata.genre}</p>
+                            : ''
+                        }
 
                     </div>
                 </div>
