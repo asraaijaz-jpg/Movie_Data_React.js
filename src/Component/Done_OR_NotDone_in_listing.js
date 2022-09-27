@@ -38,6 +38,12 @@ function Done_OR_NotDone_in_listing() {
     }
 
     function addinlist() {
+
+        // temp.map((novalue)=>
+        // <div>
+        //     {novalue.checkbox === null ? ' False' : ''}
+        // </div>)
+
         setlist([...list, { temp }])
         setcount(count + 1);
         document.getElementById('item').value = "";
@@ -73,7 +79,7 @@ function Done_OR_NotDone_in_listing() {
                                 <br></br>
                                 {value.item}<br></br>
                                 {value.done}<br></br>
-                                {display === false ? value.checkbox : 'False'} 
+                                {value.checkbox} 
                             </p>
                         </div>)
                 }
